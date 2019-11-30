@@ -20,10 +20,6 @@ const defaultNavigationOptions = ({
 }) => ({
   title: routeName,
   headerTintColor: 'black',
-  headerStyle: {
-    borderWidth: 1,
-    borderColor: 'black',
-  },
 });
 
 const HomeStack = createStackNavigator(
@@ -63,7 +59,7 @@ export default createAppContainer(
     },
     {
       defaultNavigationOptions: ({navigation}) => ({
-        tabBarIcon: ({focused, tintColor}) => {
+        tabBarIcon: ({tintColor}) => {
           const {routeName} = navigation.state;
 
           switch (routeName) {
