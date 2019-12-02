@@ -1,5 +1,8 @@
 import React from 'react';
-import {createAppContainer} from 'react-navigation';
+import {
+  createAppContainer,
+  getActiveChildNavigationOptions,
+} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 
@@ -19,6 +22,7 @@ const defaultNavigationOptions = ({
   },
 }) => ({
   title: routeName,
+  tabBarLabel: routeName,
   headerTintColor: 'black',
 });
 
@@ -38,6 +42,19 @@ const MedicationStack = createStackNavigator(
   },
   {
     defaultNavigationOptions,
+    navigationOptions: ({navigation, screenProps}) => {
+      const {tabBarLabel} = {
+        ...getActiveChildNavigationOptions(navigation, screenProps),
+      };
+
+      if (tabBarLabel == 'Details') {
+        return {tabBarVisible: false};
+      }
+
+      return {
+        tabBarVisible: true,
+      };
+    },
   },
 );
 
