@@ -24,14 +24,21 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   tableItem: {
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    padding: 10,
     marginBottom: 10,
+    paddingRight: 10,
+  },
+  fullSizeBlock: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  tableItemInfo: {
+    flex: 1,
+  },
+  touchableStyled: {
+    padding: 10,
   },
   centerElement: {
     flex: 1,
